@@ -1,7 +1,8 @@
 const express = require('express');
-const Workout = require('../models/workout.js');
+const db = require('../models');
 
 module.exports = function (app) {
+  // TODO Is this needed?
   // middleware that is specific to this router
   app.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
@@ -9,7 +10,7 @@ module.exports = function (app) {
   });
 
   app.get('/api/workouts', (req, res) => {
-    Workout.aggregate([
+    db.Workout.aggregate([
       { $addFields: { totalDuration: { $sum: '$exercises.duration' } } }
     ])
       .then((workoutsDB) => {
@@ -21,7 +22,7 @@ module.exports = function (app) {
   });
 
   app.post('/api/workouts', (req, res) => {
-    Workout.create({})
+    db.Workout.create({})
       .then((workoutsDB) => {
         res.json(workoutsDB);
       })
@@ -31,7 +32,7 @@ module.exports = function (app) {
   });
 
   app.put('/api/workouts/:id', ({ body, params }, res) => {
-    Workout.findByIdAndUpdate(
+    db.Workout.findByIdAndUpdate(
       params.id,
       { $push: { exercises: body } },
 
@@ -46,7 +47,7 @@ module.exports = function (app) {
   });
 
   app.get('/api/workouts/range', (req, res) => {
-    Workout.aggregate([
+    db.Workout.aggregate([
       { $addFields: { totalDuration: { $sum: '$exercises.duration' } } }
     ])
       .then((workoutsDB) => {

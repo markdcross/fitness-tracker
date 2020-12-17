@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 //* Database
 //* =============================
 // Require the models folder
-const db = require('models');
+const db = require('./models');
 
 // Connect to Mongoose db and logging port
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workoutdb', {
