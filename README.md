@@ -25,7 +25,9 @@ Install NPM Packages via `$ npm i`
 
 ## Usage
 
-![screenshot](public\screenshot.png)
+![screenshot](./public/screenshot.png)
+![screenshot](./public/screenshot2.png)
+![screenshot](./public/dashboard.png)
 
 When the user loads the page, they are given the option to create a new workout or continue with their last workout.
 The user is able to:
