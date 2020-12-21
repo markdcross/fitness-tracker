@@ -24,6 +24,14 @@ As a user, I want to be able to view create and track daily workouts. I want to 
 Install NPM Packages via `$ npm i`
 
 ## Usage
+### **Technologies**
+
+- MongoDB
+- Heroku
+- .env Environment Variabls
+- HTML/CSS
+- Javascript
+- Compression NPM Package
 
 ![screenshot](./public/screenshot.png)
 ![screenshot](./public/screenshot2.png)
